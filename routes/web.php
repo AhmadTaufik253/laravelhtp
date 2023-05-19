@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\StaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,5 @@ Route::get('/data_siswa', [SiswaController::class, 'dataSiswa']);
 
 // mengarahkan ke controller dashboardController
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
+Route::get('/staff', [StaffController::class, 'index']);
 
