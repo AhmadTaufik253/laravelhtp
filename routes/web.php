@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\DivisiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +43,10 @@ Route::get('/daftar_nilai', function () {
 Route::get('/data_siswa', [SiswaController::class, 'dataSiswa']);
 
 // mengarahkan ke controller dashboardController
+//prefix atau grouping
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
 Route::get('/staff', [StaffController::class, 'index']);
+Route::get('/pegawai', [PegawaiController::class, 'index']);
+Route::get('/jabatan', [JabatanController::class, 'index']);
+Route::get('/divisi', [DivisiController::class, 'index']);
 

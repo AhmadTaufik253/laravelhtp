@@ -4,7 +4,7 @@
           <div class="sb-sidenav-menu">
             <div class="nav">
               <div class="sb-sidenav-menu-heading">Core</div>
-              <a class="nav-link" href="index.php?url=dashboard">
+              <a class="nav-link" href="/dashboard">
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Dashboard
               </a>
@@ -16,9 +16,9 @@
               </a>
               <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                <a class="nav-link" href="index.php?url=product">Data produk</a>
-                  <a class="nav-link" href="index.php?url=jenis_produk">Data jenis produk</a>
-                  <a class="nav-link" href="index.php?url=pelanggan">Data pelanggan</a>
+                <a class="nav-link" href="/pegawai">Data pegawai</a>
+                  <a class="nav-link" href="/jabatan">Data jabatan</a>
+                  <a class="nav-link" href="/divisi">Data divisi</a>
                   <a class="nav-link" href="index.php?url=pesanan">Data pesanan</a>
                   <a class="nav-link" href="index.php?url=kartu">Data kartu</a>
                   <a class="nav-link" href="about.php">About</a>
