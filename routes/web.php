@@ -20,7 +20,7 @@ use App\Http\Controllers\DivisiController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.dashboard');
 });
 
 Route::get('/salam', function () {
@@ -46,7 +46,20 @@ Route::get('/data_siswa', [SiswaController::class, 'dataSiswa']);
 //prefix atau grouping
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
 Route::get('/staff', [StaffController::class, 'index']);
+
+
 Route::get('/pegawai', [PegawaiController::class, 'index']);
+Route::get('/pegawai/create', [PegawaiController::class, 'create']);
+Route::post ('/pegawai/store', [PegawaiController::class, 'store']);
+Route::post ('/pegawai/edit/{id}', [PegawaiController::class, 'edit']);
+
+
 Route::get('/jabatan', [JabatanController::class, 'index']);
+
+
 Route::get('/divisi', [DivisiController::class, 'index']);
+Route::get('/divisi/create', [DivisiController::class, 'create']);
+Route::post('/divisi/store', [DivisiController::class, 'store']);
+Route::get('/divisi/edit/{id}', [DivisiController::class, 'edit']);
+Route::post('/divisi/update/{id}', [DivisiController::class, 'update']);
 

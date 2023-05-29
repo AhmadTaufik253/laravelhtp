@@ -17,7 +17,7 @@
             <!-- <i class="fas fa-table me-1"></i>
             DataTable Example -->
             <!-- membuat tombol mengarahkan ke file produk_form.php -->
-            <a href="#" class="btn btn-primary btn-sm">Tambah</a>
+            <a href="/divisi/create" class="btn btn-primary btn-sm">Tambah</a>
             
         </div>
         <div class="card-body">
@@ -49,7 +49,7 @@
                             
                                 <a class="btn btn-info btn-sm" href="#">Detail</a>
                                 
-                                <a class="btn btn-warning btn-sm" href="#">Ubah</a>
+                                <a class="btn btn-warning btn-sm" href="{{ url('divisi/edit', $div->id) }}">Ubah</a>
                                 <button type="submit" class="btn btn-danger btn-sm" name="proses" value="hapus" onclick="confirm('Apakah anda yakin ingin menghapus?')">Hapus</button>
                                 <input type="hidden" name="idx" value="">
                                 

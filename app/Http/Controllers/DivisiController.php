@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Divisi;
+use DB;
 
 class DivisiController extends Controller
 {
@@ -24,6 +25,7 @@ class DivisiController extends Controller
     public function create()
     {
         //
+        return view('admin.divisi.create');
     }
 
     /**
@@ -32,6 +34,10 @@ class DivisiController extends Controller
     public function store(Request $request)
     {
         //
+        DB::table('divisi')->insert([
+            'nama'=>$request->nama,
+        ]);
+        return redirect('/divisi');
     }
 
     /**
@@ -48,6 +54,9 @@ class DivisiController extends Controller
     public function edit(string $id)
     {
         //
+        $divisi = DB::table('divisi')->where('id', $id)->get();
+
+        return view('admin.divisi.edit', compact('divisi'));
     }
 
     /**
@@ -56,6 +65,11 @@ class DivisiController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        DB::table('divisi')->where('id', $request->id)->update([
+            'nama' => $request->nama,
+        ]);
+
+        return redirect('divisi');
     }
 
     /**

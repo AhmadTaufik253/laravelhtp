@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pegawai;
 use App\Models\Jabatan;
 use App\Models\Divisi;
+use DB;
 
 class PegawaiController extends Controller
 {
@@ -31,6 +32,14 @@ class PegawaiController extends Controller
     public function create()
     {
         //
+        $jabatan = Jabatan::all();
+        $divisi = Divisi::all();
+        $pegawai = Pegawai::join('divisi', 'pegawai.divisi_id', '=', 'divisi.id')
+            ->join('jabatan', 'pegawai.jabatan_id', '=', 'jabatan.id')
+            ->select('pegawai.*', 'divisi.nama as divisi', 'jabatan.nama as jabatan')
+            ->get();
+
+            return view('admin.pegawai.create', compact('pegawai','jabatan','divisi'));
     }
 
     /**
@@ -39,6 +48,26 @@ class PegawaiController extends Controller
     public function store(Request $request)
     {
         //
+        if(!empty($request->foto)){
+            $fileName = 'foto-'.$request->id.'.'.$request->foto->extension();
+            $request->foto->move(public_path('admin/image')/$fileName);
+        } else {
+            $fileName = ' ';
+        }
+
+        DB::table('pegawai')->insert([
+            'nip' => $request->nip,
+            'nama' => $request->nama,
+            'jabatan_id' => $request->jabatan,
+            'divisi_id' => $request->divisi,
+            'gender' => $request->gender,
+            'tmp_lahir' => $request->tmp_lahir,
+            'tgl_lahir' => $request->tgl_lahir,
+            'alamat' => $request->alamat,
+            'foto' => $fileName,
+        ]);
+
+        return redirect('/pegawai');
     }
 
     /**
@@ -54,7 +83,12 @@ class PegawaiController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // ini akan diarahkan ke file edit yang ada di view 
+        // menggunakan query builder
+        
+        $pegawai = DB::table('pegawai')->where('id', $id)->get();
+
+        return view('admin.pegawai.edit', compact('pegawai'));
     }
 
     /**

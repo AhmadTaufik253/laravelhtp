@@ -17,7 +17,7 @@
             <!-- <i class="fas fa-table me-1"></i>
             DataTable Example -->
             <!-- membuat tombol mengarahkan ke file produk_form.php -->
-            <a href="#" class="btn btn-primary btn-sm">Tambah</a>
+            <a href="{{url('pegawai/create')}}" class="btn btn-primary btn-sm">Tambah</a>
             
         </div>
         <div class="card-body">
@@ -67,7 +67,8 @@
                         <td>{{$pgw->tmp_lahir}}</td>
                         <td>{{$pgw->tgl_lahir}}</td>
                         <td>{{$pgw->alamat}}</td>
-                        <td>{{$pgw->foto}}</td>
+                        <td>{{$pgw->foto}}
+                        </td>
                         <td>
                             <form action="#" method="POST">
                             
